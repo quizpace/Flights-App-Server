@@ -1,0 +1,13 @@
+{
+  "db_cloud": {
+    "host": "dpg-clkal6eukbfc7393r3r0-a.oregon-postgres.render.com",
+    "user": "quizcloud_user",
+    "password": "pJhvisoDMisz8d77SE7JsBdiu6oGc8PA",
+    "database": "quizcloud",
+    "database_test": "quizcloud_test"
+  },
+  "server": {
+    "port": 4400,
+    "logLevel": "debug"
+  }
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flight System</title>
+    <script>
+      async function fetchData(endpoint) {
+        const baseUrl = "http://localhost:4400";
+        try {
+          const response = await fetch(baseUrl + endpoint);
+          if (!response.ok) {
+            throw new Error("HTTP error! Status: " + response.status);
+          }
+          const data = await response.json();
+          document.getElementById("results").textContent = JSON.stringify(
+            data,
+            null,
+            2
+          );
+        } catch (error) {
+          console.error("Fetch error:", error);
+          document.getElementById("results").textContent =
+            "Error: " + error.message;
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <h1>Flight System</h1>
+    <button onclick="fetchData('/api/airlines')">Get All Airlines</button>
+    <button onclick="fetchData('/api/countries')">Get All Countries</button>
+    <button onclick="fetchData('/api/customers')">Get All Customers</button>
+    <button onclick="fetchData('/api/flights')">Get All Flights</button>
+    <button onclick="fetchData('/api/tickets')">Get All Tickets</button>
+    <button onclick="fetchData('/api/users')">Get All Users</button>
+    <button onclick="fetchData('/api/roles')">Get All Roles</button>
+
+    <h2>Results:</h2>
+    <pre id="results"></pre>
+  </body>
+</html>

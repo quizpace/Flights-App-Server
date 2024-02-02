@@ -9,18 +9,7 @@ const dal_users = require("../dals/dal_users");
 const knex = require("knex");
 const config = require("config");
 
-let connectedKnexTest = knex({
-  client: "pg",
-  version: "16",
-  connection: {
-    host: config.db_cloud_test.host,
-    user: config.db_cloud_test.user,
-    password: config.db_cloud_test.password,
-    database: config.db_cloud_test.database,
-    ssl: true,
-  },
-});
-function setDal() {
+function setDbConnection() {
   let connectedKnex = knex({
     client: "pg",
     version: "16",
@@ -32,7 +21,6 @@ function setDal() {
       ssl: true,
     },
   });
-  console.log("*****************");
   dal_airlines.connectedKnex = connectedKnex;
   dal_countries.connectedKnex = connectedKnex;
   dal_customers.connectedKnex = connectedKnex;
@@ -41,7 +29,18 @@ function setDal() {
   dal_tickets.connectedKnex = connectedKnex;
   dal_users.connectedKnex = connectedKnex;
 }
-function setDalTest() {
+function setDbTestConnection() {
+  let connectedKnexTest = knex({
+    client: "pg",
+    version: "16",
+    connection: {
+      host: config.db_cloud_test.host,
+      user: config.db_cloud_test.user,
+      password: config.db_cloud_test.password,
+      database: config.db_cloud_test.database,
+      ssl: true,
+    },
+  });
   dal_airlines.connectedKnex = connectedKnexTest;
   dal_countries.connectedKnex = connectedKnexTest;
   dal_customers.connectedKnex = connectedKnexTest;
@@ -50,8 +49,11 @@ function setDalTest() {
   dal_tickets.connectedKnex = connectedKnexTest;
   dal_users.connectedKnex = connectedKnexTest;
 }
+
 // Airlines
 async function getAllAirlinesBL() {
+  //console.log(connectedKnex);
+  //dal_airlines.connectedKnex = connectedKnex;
   return await dal_airlines.get_all_airlines();
 }
 
@@ -324,7 +326,8 @@ async function deleteUserBL(id) {
 
 // Export the BL functions
 module.exports = {
-  setDal,
+  setDbConnection,
+  setDbTestConnection,
   getAllAirlinesBL,
   getAirlineByIdBL,
   newAirlineBL,

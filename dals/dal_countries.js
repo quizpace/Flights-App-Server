@@ -8,19 +8,22 @@ let connectedKnex = {};
 // }
 
 async function get_all_countries() {
-  const result = await connectedKnex.raw("SELECT * FROM get_all_countries()");
+  const result = await this.connectedKnex.raw(
+    "SELECT * FROM get_all_countries()"
+  );
   return result.rows;
 }
 
 async function get_country_by_id(id) {
-  const result = await connectedKnex.raw("SELECT * FROM get_country_by_id(?)", [
-    id,
-  ]);
+  const result = await this.connectedKnex.raw(
+    "SELECT * FROM get_country_by_id(?)",
+    [id]
+  );
   return result.rows;
 }
 
 async function new_country(new_country_data) {
-  const result = await connectedKnex.raw("SELECT * FROM new_country(?)", [
+  const result = await this.connectedKnex.raw("SELECT * FROM new_country(?)", [
     new_country_data.name,
   ]);
   const newCountryId = result.rows[0].id; // Assuming the returned column is named 'id'
@@ -28,7 +31,7 @@ async function new_country(new_country_data) {
 }
 
 async function update_country(id, updated_country_data) {
-  const result = await connectedKnex.raw(
+  const result = await this.connectedKnex.raw(
     "SELECT * FROM update_country_details(?, ?)",
     [id, updated_country_data.name]
   );
@@ -37,7 +40,7 @@ async function update_country(id, updated_country_data) {
 }
 
 async function delete_country(id) {
-  await connectedKnex.raw("CALL delete_country(?)", [id]);
+  await this.connectedKnex.raw("CALL delete_country(?)", [id]);
 }
 
 // Export the functions as before

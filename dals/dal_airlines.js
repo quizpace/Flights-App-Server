@@ -1,6 +1,7 @@
 const knex = require("knex");
 const config = require("config");
 const blAdmin = require("../bls/bl_admin");
+const { log } = require("winston");
 
 // async function delete_all_airlines() {
 //   await connectedKnex.raw("CALL delete_all_airlines()");
@@ -8,20 +9,22 @@ const blAdmin = require("../bls/bl_admin");
 let connectedKnex = {};
 
 async function get_all_airlines() {
-  console.log(connectedKnex);
-  const result = await connectedKnex.raw("SELECT * FROM get_all_airlines()");
+  console.log('KNEX!');
+  console.log(this.connectedKnex);
+  // return {"result": "ok"}
+  const result = await this.connectedKnex.raw("SELECT * FROM get_all_airlines()");
   return result.rows;
 }
 
 async function get_airline_by_id(id) {
-  const result = await connectedKnex.raw("SELECT * FROM get_airline_by_id(?)", [
+  const result = await this.connectedKnex.raw("SELECT * FROM get_airline_by_id(?)", [
     id,
   ]);
   return result.rows;
 }
 
 async function new_airline(new_airline_data) {
-  const result = await connectedKnex.raw("SELECT * FROM new_airline(?, ?, ?)", [
+  const result = await this.connectedKnex.raw("SELECT * FROM new_airline(?, ?, ?)", [
     new_airline_data.name,
     new_airline_data.country_id,
     new_airline_data.user_id,
@@ -31,7 +34,7 @@ async function new_airline(new_airline_data) {
 }
 
 async function update_airline(id, updated_airline_data) {
-  const result = await connectedKnex.raw(
+  const result = await this.connectedKnex.raw(
     "SELECT * FROM update_airline_details(?, ?, ?, ?)",
     [
       id,
@@ -45,7 +48,7 @@ async function update_airline(id, updated_airline_data) {
 }
 
 async function delete_airline(id) {
-  await connectedKnex.raw("CALL delete_airline(?)", [id]);
+  await this.connectedKnex.raw("CALL delete_airline(?)", [id]);
 }
 
 // Export the functions as before

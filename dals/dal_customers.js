@@ -7,12 +7,12 @@ let connectedKnex = {};
 // }
 
 async function get_all_customers() {
-  const result = await connectedKnex.raw("SELECT * FROM get_all_customers()");
+  const result = await this.connectedKnex.raw("SELECT * FROM get_all_customers()");
   return result.rows;
 }
 
 async function get_customer_by_id(id) {
-  const result = await connectedKnex.raw(
+  const result = await this.connectedKnex.raw(
     "SELECT * FROM get_customer_by_id(?)",
     [id]
   );
@@ -20,7 +20,7 @@ async function get_customer_by_id(id) {
 }
 
 async function new_customer(new_customer_data) {
-  const result = await connectedKnex.raw(
+  const result = await this.connectedKnex.raw(
     "SELECT * FROM new_customer(?, ?, ?, ?, ?, ?)",
     [
       new_customer_data.first_name,
@@ -36,7 +36,7 @@ async function new_customer(new_customer_data) {
 }
 
 async function update_customer(id, updated_customer_data) {
-  const result = await connectedKnex.raw(
+  const result = await this.connectedKnex.raw(
     "SELECT * FROM update_customer_details(?, ?, ?, ?, ?, ?, ?)",
     [
       id,
@@ -53,7 +53,7 @@ async function update_customer(id, updated_customer_data) {
 }
 
 async function delete_customer(id) {
-  await connectedKnex.raw("CALL delete_customer(?)", [id]);
+  await this.connectedKnex.raw("CALL delete_customer(?)", [id]);
 }
 
 // Export the functions as before

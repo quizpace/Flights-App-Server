@@ -8,19 +8,19 @@ let connectedKnex = {};
 // }
 
 async function get_all_roles() {
-  const result = await connectedKnex.raw("SELECT * FROM get_all_roles()");
+  const result = await this.connectedKnex.raw("SELECT * FROM get_all_roles()");
   return result.rows;
 }
 
 async function get_role_by_id(id) {
-  const result = await connectedKnex.raw("SELECT * FROM get_role_by_id(?)", [
+  const result = await this.connectedKnex.raw("SELECT * FROM get_role_by_id(?)", [
     id,
   ]);
   return result.rows;
 }
 
 async function new_role(new_role_data) {
-  const result = await connectedKnex.raw("SELECT * FROM new_role(?)", [
+  const result = await this.connectedKnex.raw("SELECT * FROM new_role(?)", [
     new_role_data.role_name,
   ]);
   const newRoleId = result.rows[0].id; // Assuming the returned column is named 'id'
@@ -28,7 +28,7 @@ async function new_role(new_role_data) {
 }
 
 async function update_role(id, updated_role_data) {
-  const result = await connectedKnex.raw(
+  const result = await this.connectedKnex.raw(
     "SELECT * FROM update_role_details(?, ?)",
     [id, updated_role_data.role_name]
   );
@@ -37,7 +37,7 @@ async function update_role(id, updated_role_data) {
 }
 
 async function delete_role(id) {
-  await connectedKnex.raw("CALL delete_role(?)", [id]);
+  await this.connectedKnex.raw("CALL delete_role(?)", [id]);
 }
 
 // Export the functions as before

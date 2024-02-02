@@ -12,7 +12,7 @@
     "database": "flights_system_test"
   },
   "server": {
-    "port": 4600,
+    "port": 5500,
     "logLevel": "debug"
   }
 }

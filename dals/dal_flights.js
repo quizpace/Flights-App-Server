@@ -2,25 +2,27 @@ const knex = require("knex");
 const config = require("config");
 let connectedKnex = {};
 
-
 async function delete_all_flights() {
-  await connectedKnex.raw("CALL delete_all_flights()");
+  await this.connectedKnex.raw("CALL delete_all_flights()");
 }
 
 async function get_all_flights() {
-  const result = await connectedKnex.raw("SELECT * FROM get_all_flights()");
+  const result = await this.connectedKnex.raw(
+    "SELECT * FROM get_all_flights()"
+  );
   return result.rows;
 }
 
 async function get_flight_by_id(id) {
-  const result = await connectedKnex.raw("SELECT * FROM get_flight_by_id(?)", [
-    id,
-  ]);
+  const result = await this.connectedKnex.raw(
+    "SELECT * FROM get_flight_by_id(?)",
+    [id]
+  );
   return result.rows;
 }
 
 async function new_flight(new_flight_data) {
-  const result = await connectedKnex.raw(
+  const result = await this.connectedKnex.raw(
     "SELECT * FROM new_flight(?, ?, ?, ?, ?, ?)",
     [
       new_flight_data.airline_id,
@@ -36,7 +38,7 @@ async function new_flight(new_flight_data) {
 }
 
 async function update_flight(id, updated_flight_data) {
-  const result = await connectedKnex.raw(
+  const result = await this.connectedKnex.raw(
     "SELECT * FROM update_flight_details(?, ?, ?, ?, ?, ?, ?)",
     [
       id,
@@ -53,7 +55,7 @@ async function update_flight(id, updated_flight_data) {
 }
 
 async function delete_flight(id) {
-  await connectedKnex.raw("CALL delete_flight(?)", [id]);
+  await this.connectedKnex.raw("CALL delete_flight(?)", [id]);
 }
 
 // Export the functions as before

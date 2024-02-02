@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
-// blAdmin.setDalTest();
+const blAdmin = require("../bls/bl_admin");
+// do this for all BLs
+blAdmin.setDbConnection();
 
 // Airlines routes
 //----------------
@@ -9,8 +11,7 @@ router.get("/airlines", async (req, res) => {
   try {
     console.log("/airlines");
     // // Require your BL modules
-    const blAdmin = require("../bls/bl_admin");
-    blAdmin.setDal();
+    //blAdmin.setDal();
     const airlines = await blAdmin.getAllAirlinesBL();
     res.json(airlines);
   } catch (error) {

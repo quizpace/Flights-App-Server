@@ -1,16 +1,6 @@
 const knex = require("knex");
 const config = require("config");
-let connectedKnex = knex({
-  client: "pg",
-  version: "16",
-  connection: {
-    host: config.db_cloud.host,
-    user: config.db_cloud.user,
-    password: config.db_cloud.password,
-    database: config.db_cloud.database,
-    ssl: true,
-  },
-});
+let connectedKnex = {};
 
 
 // async function delete_all_roles() {

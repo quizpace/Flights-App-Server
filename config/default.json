@@ -3,11 +3,16 @@
     "host": "dpg-clkal6eukbfc7393r3r0-a.oregon-postgres.render.com",
     "user": "quizcloud_user",
     "password": "pJhvisoDMisz8d77SE7JsBdiu6oGc8PA",
-    "database": "quizcloud",
-    "database_test": "quizcloud_test"
+    "database": "quizcloud"
+  },
+  "db_cloud_test": {
+    "host": " dpg-cmnc46gl5elc73chk89g-a.oregon-postgres.render.com",
+    "user": "flights_system_test_user",
+    "password": "O9gzO0WiHTeKSy6JpBt5SP7oUZZhRjQ9",
+    "database": "flights_system_test"
   },
   "server": {
-    "port": 4400,
+    "port": 4600,
     "logLevel": "debug"
   }
 }

@@ -6,50 +6,50 @@ const dal_flights = require("../dals/dal_flights");
 const dal_roles = require("../dals/dal_roles");
 const dal_tickets = require("../dals/dal_tickets");
 const dal_users = require("../dals/dal_users");
+const knex = require("knex");
+const config = require("config");
 
-// const config = require("config");
-// let connectedKnex = knex({
-//   client: "pg",
-//   version: "16",
-//   connection: {
-//     host: config.db_cloud.host,
-//     user: config.db_cloud.user,
-//     password: config.db_cloud.password,
-//     database: config.db_cloud.database,
-//     ssl: true,
-//   },
-// });
-
-// connectedKnexTest = knex({
-//   client: "pg",
-//   version: "16",
-//   connection: {
-//     host: config.db_cloud.host,
-//     user: config.db_cloud.user,
-//     password: config.db_cloud.password,
-//     database: config.db_cloud.database_test,
-//     ssl: true,
-//   },
-// });
-
-// function setDal() {
-//   dal_airlines.connectedKnex = connectedKnex;
-//   dal_countries.connectedKnex = connectedKnex;
-//   dal_customers.connectedKnex = connectedKnex;
-//   dal_flights.connectedKnex = connectedKnex;
-//   dal_roles.connectedKnex = connectedKnex;
-//   dal_tickets.connectedKnex = connectedKnex;
-//   dal_users.connectedKnex = connectedKnex;
-// }
-// function setDalTest() {
-//   dal_airlines.connectedKnex = connectedKnexTest;
-//   dal_countries.connectedKnex = connectedKnexTest;
-//   dal_customers.connectedKnex = connectedKnexTest;
-//   dal_flights.connectedKnex = connectedKnexTest;
-//   dal_roles.connectedKnex = connectedKnexTest;
-//   dal_tickets.connectedKnex = connectedKnexTest;
-//   dal_users.connectedKnex = connectedKnexTest;
-// }
+let connectedKnexTest = knex({
+  client: "pg",
+  version: "16",
+  connection: {
+    host: config.db_cloud_test.host,
+    user: config.db_cloud_test.user,
+    password: config.db_cloud_test.password,
+    database: config.db_cloud_test.database,
+    ssl: true,
+  },
+});
+function setDal() {
+  let connectedKnex = knex({
+    client: "pg",
+    version: "16",
+    connection: {
+      host: config.db_cloud.host,
+      user: config.db_cloud.user,
+      password: config.db_cloud.password,
+      database: config.db_cloud.database,
+      ssl: true,
+    },
+  });
+  console.log("*****************");
+  dal_airlines.connectedKnex = connectedKnex;
+  dal_countries.connectedKnex = connectedKnex;
+  dal_customers.connectedKnex = connectedKnex;
+  dal_flights.connectedKnex = connectedKnex;
+  dal_roles.connectedKnex = connectedKnex;
+  dal_tickets.connectedKnex = connectedKnex;
+  dal_users.connectedKnex = connectedKnex;
+}
+function setDalTest() {
+  dal_airlines.connectedKnex = connectedKnexTest;
+  dal_countries.connectedKnex = connectedKnexTest;
+  dal_customers.connectedKnex = connectedKnexTest;
+  dal_flights.connectedKnex = connectedKnexTest;
+  dal_roles.connectedKnex = connectedKnexTest;
+  dal_tickets.connectedKnex = connectedKnexTest;
+  dal_users.connectedKnex = connectedKnexTest;
+}
 // Airlines
 async function getAllAirlinesBL() {
   return await dal_airlines.get_all_airlines();
@@ -324,6 +324,7 @@ async function deleteUserBL(id) {
 
 // Export the BL functions
 module.exports = {
+  setDal,
   getAllAirlinesBL,
   getAirlineByIdBL,
   newAirlineBL,

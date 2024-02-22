@@ -1,0 +1,73 @@
+@import url("https://fonts.googleapis.com/css2?family=Sixtyfour&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Pacifico&display=swap");
+
+.main-logo {
+  position: absolute;
+  width: 7%;
+}
+
+@keyframes slideLightFromRight {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 3.8%;
+  }
+}
+.light-cloud {
+  position: absolute;
+  top: 0;
+  left: 3.8%;
+  width: 4%;
+  opacity: 0.6;
+  animation: slideLightFromRight 2s ease forwards;
+}
+
+@keyframes slideTextFromRight {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 2%;
+  }
+}
+
+.text-sky-sweep {
+  position: relative;
+  left: 2%;
+  font-family: "Pacifico", cursive;
+  background: linear-gradient(to right, rgb(152, 203, 241), rgb(16, 133, 179));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+  animation: slideTextFromRight 1.5s ease forwards;
+}
+
+@keyframes slideTextFromRight {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 2%;
+  }
+}
+
+.cloud-logo-img {
+  position: absolute;
+  width: 10%;
+  top: 1%;
+  left: 10%;
+  transform: rotate(30deg);
+  opacity: 0.8;
+  animation: slideCloudFromRight 1s ease forwards;
+}
+
+@keyframes slideCloudFromRight {
+  from {
+    left: -100%;
+  }
+  to {
+    left: 10%;
+  }
+}

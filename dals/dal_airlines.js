@@ -1,6 +1,4 @@
 const knex = require("knex");
-const config = require("config");
-const blAdmin = require("../bls/bl_admin");
 const { log } = require("winston");
 
 // async function delete_all_airlines() {
@@ -9,26 +7,29 @@ const { log } = require("winston");
 let connectedKnex = {};
 
 async function get_all_airlines() {
-  console.log('KNEX!');
-  console.log(this.connectedKnex);
-  // return {"result": "ok"}
-  const result = await this.connectedKnex.raw("SELECT * FROM get_all_airlines()");
+  const result = await this.connectedKnex.raw(
+    "SELECT * FROM get_all_airlines()"
+  );
   return result.rows;
 }
 
 async function get_airline_by_id(id) {
-  const result = await this.connectedKnex.raw("SELECT * FROM get_airline_by_id(?)", [
-    id,
-  ]);
+  const result = await this.connectedKnex.raw(
+    "SELECT * FROM get_airline_by_id(?)",
+    [id]
+  );
   return result.rows;
 }
 
 async function new_airline(new_airline_data) {
-  const result = await this.connectedKnex.raw("SELECT * FROM new_airline(?, ?, ?)", [
-    new_airline_data.name,
-    new_airline_data.country_id,
-    new_airline_data.user_id,
-  ]);
+  const result = await this.connectedKnex.raw(
+    "SELECT * FROM new_airline(?, ?, ?)",
+    [
+      new_airline_data.name,
+      new_airline_data.country_id,
+      new_airline_data.user_id,
+    ]
+  );
   const newAirlineId = result.rows[0].id; // Assuming the returned column is named 'id'
   return { ...new_airline_data, id: newAirlineId };
 }

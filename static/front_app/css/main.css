@@ -1,0 +1,50 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+/* 
+body {
+  background-image: url("/static/front_app/img/sky.jpg"); Replace with the path to your image */
+/* background-size: cover; /* Cover the entire screen */
+/*background-position: center center; /* Center the image in the page */
+/*background-repeat: no-repeat; /* Do not repeat the image */
+/*background-attachment: fixed; /* Keep the image fixed during scroll */
+/*}  */
+
+body {
+  background: linear-gradient(to right, rgb(189, 227, 239), rgb(248, 253, 255));
+}
+
+/* .menu-bar {
+  position: absolute;
+  background: linear-gradient(to right, rgb(192, 208, 212), rgb(134, 202, 218));
+  width: 55%;
+  height: 8%;
+  right: 1%;
+  top: 1.5%;
+  border-radius: 55px;
+  opacity: 0.7;
+} */
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-100%) scale(0.5);
+  }
+  to {
+    opacity: 0.7;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.menu-bar {
+  position: absolute;
+  background: linear-gradient(to right, rgb(192, 208, 212), rgb(134, 202, 218));
+  width: 55%;
+  height: 8%;
+  right: 1%;
+  top: 1.5%;
+  border-radius: 55px;
+  opacity: 0; /* Start fully transparent */
+  animation: slideInDown 0.8s ease-out forwards; /* Adjust time as needed */
+}

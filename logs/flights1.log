@@ -592,3 +592,129 @@
   label: 'Flights System REST API App',
   timestamp: '2024-02-02T15:56:07.434Z'
 }
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:54:04.127Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:54:04.132Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:54:04.133Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:54:33.713Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:54:33.718Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:54:33.718Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:57:24.768Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:57:24.773Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:57:24.773Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:57:27.250Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:57:27.254Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-11T08:57:27.255Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-12T19:15:02.160Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-12T19:15:02.165Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-12T19:15:02.166Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-12T19:15:07.789Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-12T19:15:07.793Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-12T19:15:07.794Z'
+}
+{
+  message: '==== System start =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-12T19:21:16.175Z'
+}
+{
+  message: '==== System stop =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-12T19:21:16.180Z'
+}
+{
+  message: '==== Server started =======',
+  level: 'info',
+  label: 'Flights System REST API App',
+  timestamp: '2024-02-12T19:21:16.180Z'
+}

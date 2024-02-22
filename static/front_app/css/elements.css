@@ -1,0 +1,65 @@
+@import url("https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap");
+
+@keyframes slideElement1FromRight {
+  from {
+    right: -100%;
+  }
+  to {
+    right: 0%;
+  }
+}
+
+.element1 {
+  position: absolute;
+  width: 10%;
+  bottom: 0;
+  right: 0;
+  opacity: 0.9;
+  animation: slideElement1FromRight 2.5s ease forwards;
+}
+
+.switch-ads-sentences {
+  position: absolute;
+  bottom: 0;
+  left: 2%;
+  border-radius: 5px;
+  font-family: "Luckiest Guy", cursive;
+  background: linear-gradient(to right, rgb(126, 168, 200), rgb(142, 157, 163));
+  -webkit-background-clip: text; /* For Safari */
+  background-clip: text;
+  color: transparent; /* Hide the text color */
+}
+.swip-icon {
+  position: absolute;
+  width: 7%;
+  top: 12%;
+  right: 1%;
+  z-index: 1;
+  cursor: pointer;
+  transform: rotate(-90deg);
+}
+.sweep-mode-text {
+  position: absolute;
+  top: 10.5%;
+  right: 7.8%;
+  border-radius: 5px;
+  padding: 5px;
+  padding-top: 10px;
+  font-family: "Luckiest Guy", cursive;
+  background: linear-gradient(to right, rgb(113, 93, 60), rgb(180, 219, 158));
+  -webkit-background-clip: text; /* For Safari */
+  background-clip: text;
+  color: transparent; /* Hide the text color */
+  border: 1px solid rgba(13, 214, 100, 0.089);
+  animation: rotateAnimation 2s infinite alternate; /* Adjust duration and timing as needed */
+  cursor: pointer;
+}
+
+@keyframes rotateAnimation {
+  from {
+    transform: rotate(-3deg); /* Start rotation angle */
+  }
+  to {
+    transform: rotate(3deg); /* End rotation angle */
+  }
+}

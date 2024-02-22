@@ -6,7 +6,7 @@
     "database": "quizcloud"
   },
   "db_cloud_test": {
-    "host": " dpg-cmnc46gl5elc73chk89g-a.oregon-postgres.render.com",
+    "host": "dpg-cmnc46gl5elc73chk89g-a.oregon-postgres.render.com",
     "user": "flights_system_test_user",
     "password": "O9gzO0WiHTeKSy6JpBt5SP7oUZZhRjQ9",
     "database": "flights_system_test"
